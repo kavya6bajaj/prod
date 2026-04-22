@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.productivity.controller.NotesController"
+            styleClass="notes-root">
+
+    <!-- ===================================================== -->
+    <!-- TOP BAR -->
+    <!-- ===================================================== -->
+    <top>
+        <HBox spacing="12"
+              alignment="CENTER_LEFT"
+              styleClass="view-header">
+
+            <!-- Title -->
+            <Label text="NOTES"
+                   styleClass="view-title"/>
+
+            <Label text="Upload, manage and delete your study files"
+                   styleClass="view-subtitle"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Upload Button -->
+            <Button text="Upload File"
+                    onAction="#handleUploadNote"
+                    styleClass="btn-primary"/>
+
+            <!-- Delete Button -->
+            <Button text="Delete Selected"
+                    onAction="#handleDeleteNote"
+                    styleClass="btn-delete"/>
+
+        </HBox>
+    </top>
+
+    <!-- ===================================================== -->
+    <!-- CENTER AREA -->
+    <!-- ===================================================== -->
+    <center>
+        <VBox spacing="12"
+              style="-fx-padding: 20;">
+
+            <!-- Hint / Info Bar -->
+            <HBox spacing="10"
+                  alignment="CENTER_LEFT"
+                  style="-fx-padding: 10; -fx-background-color: #13161e; -fx-border-radius: 6;">
+
+                <Label text="Tip:"
+                       style="-fx-text-fill: #f0a500; -fx-font-weight: bold;"/>
+
+                <Label text="Select a file from the list to delete it"
+                       style="-fx-text-fill: #9aa0b4;"/>
+            </HBox>
+
+            <!-- FILE LIST -->
+            <ListView fx:id="notesList"
+                      styleClass="note-list"
+                      VBox.vgrow="ALWAYS"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>

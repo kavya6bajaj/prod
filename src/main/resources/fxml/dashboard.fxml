@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.productivity.controller.DashboardController"
+            styleClass="root-pane">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="220">
+
+            <!-- BRAND -->
+            <VBox styleClass="sidebar-brand">
+                <Label text="MAVERICK" styleClass="brand-title"/>
+                <Label text="PRODUCTIVITY SUITE" styleClass="brand-subtitle"/>
+            </VBox>
+
+            <!-- NAV -->
+            <VBox styleClass="nav-section">
+
+                <Label text="MAIN" styleClass="nav-section-label"/>
+
+                <Button text="Tasks" styleClass="nav-btn nav-btn-active" onAction="#showTasks"/>
+                <Button text="Pomodoro" styleClass="nav-btn" onAction="#showPomodoro"/>
+                <Button text="Notes" styleClass="nav-btn" onAction="#showNotes"/>
+
+            </VBox>
+
+            <!-- STATUS -->
+            <VBox styleClass="status-row">
+                <Label text="STATUS: MOCK MODE" styleClass="status-label"/>
+                <Label text="CONNECTED" styleClass="badge-mock"/>
+            </VBox>
+
+        </VBox>
+    </left>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            <Label text="Loading..." styleClass="loading-label"/>
+        </StackPane>
+    </center>
+
+</BorderPane>

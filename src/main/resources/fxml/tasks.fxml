@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.productivity.controller.TasksController"
+            styleClass="view-root">
+
+    <!-- HEADER -->
+    <top>
+        <HBox styleClass="view-header" alignment="CENTER_LEFT" spacing="20">
+            <VBox>
+                <Label text="Tasks" styleClass="view-title"/>
+                <Label text="Manage your work efficiently" styleClass="view-subtitle"/>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button text="+ Add Task" 
+                    styleClass="btn-primary" 
+                    onAction="#handleAddTask"/>
+        </HBox>
+    </top>
+
+    <!-- TABLE -->
+    <center>
+        <TableView fx:id="taskTable" styleClass="task-table">
+
+            <columns>
+
+    <TableColumn fx:id="completedColumn" text="" prefWidth="60"/>
+
+    <TableColumn fx:id="titleColumn" text="Title" prefWidth="300"/>
+
+    <TableColumn fx:id="statusColumn" text="Status" prefWidth="120"/>
+
+    <TableColumn fx:id="priorityColumn" text="Priority" prefWidth="120"/>
+
+    <TableColumn fx:id="actionColumn" text="Action" prefWidth="120"/>
+
+</columns>
+        </TableView>
+    </center>
+
+</BorderPane>

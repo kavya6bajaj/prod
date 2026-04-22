@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.productivity.controller.PomodoroController"
+            styleClass="pomodoro-root">
+
+    <!-- TOP HEADER -->
+    <top>
+        <VBox alignment="CENTER" spacing="6" styleClass="pomodoro-mode-bar">
+
+            <Label text="POMODORO TIMER" styleClass="view-title"/>
+
+            <Label fx:id="modeLabel"
+                   text="FOCUS MODE"
+                   styleClass="view-subtitle"/>
+
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <VBox alignment="CENTER" spacing="30">
+
+            <!-- SETTINGS -->
+            <VBox spacing="10" alignment="CENTER">
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Label text="Study (min):"/>
+                    <TextField fx:id="focusInput"
+                               prefWidth="70"
+                               promptText="25"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Label text="Break (min):"/>
+                    <TextField fx:id="breakInput"
+                               prefWidth="70"
+                               promptText="5"/>
+                </HBox>
+
+                <Button text="Set Cycle"
+                        onAction="#handleSetCycle"
+                        styleClass="btn-ghost"/>
+
+            </VBox>
+
+            <!-- TIMER RING -->
+            <StackPane alignment="CENTER">
+
+                <!-- Background ring -->
+                <Circle radius="95"
+                        stroke="#2a2f40"
+                        strokeWidth="8"
+                        fill="transparent"/>
+
+                <!-- Progress ring -->
+                <Arc fx:id="progressArc"
+                     radiusX="95"
+                     radiusY="95"
+                     startAngle="90"
+                     length="360"
+                     type="OPEN"
+                     stroke="#f0a500"
+                     strokeWidth="8"
+                     fill="transparent"/>
+
+                <!-- Timer text -->
+                <Label fx:id="timeLabel"
+                       text="25:00"
+                       styleClass="clock-label"/>
+
+            </StackPane>
+
+            <!-- CONTROLS -->
+            <HBox spacing="15" alignment="CENTER" styleClass="pomodoro-controls">
+
+                <Button text="Start"
+                        onAction="#handleStart"
+                        styleClass="btn-primary"/>
+
+                <Button text="Pause"
+                        onAction="#handlePause"
+                        styleClass="btn-ghost"/>
+
+                <Button text="Reset"
+                        onAction="#handleReset"
+                        styleClass="btn-ghost"/>
+
+            </HBox>
+
+            <!-- SESSION -->
+            <Label fx:id="sessionLabel"
+                   text="Session 1"
+                   styleClass="view-subtitle"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>
